@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+
+require('../config/runtime/dotenv');
+require('../config/runtime/aliases');
+
+const { createServer } = require('http');
+const app = require('../app');
+
+app.env = process.env.NODE_ENV || 'development';
+app.subdomainOffset = 2;
+app.userSubdomain = '';
+
+app.keys = [process.env.COOKIE_SECRET];
+
+const port = process.env.PORT || 3000;
+
+const server = createServer(app.callback());
+
+server.listen(port);
