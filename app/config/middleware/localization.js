@@ -2,8 +2,7 @@ const { resolve } = require('path');
 const Localization = require('@services/localization/localization');
 
 const locales = [
-    process.env.LOCALE_EN,
-    process.env.LOCALE_RU
+    process.env.LOCALE_EN
 ];
 
 const defaultLocale = process.env.DEFAULT_LOCALE;

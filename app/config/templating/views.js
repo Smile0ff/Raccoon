@@ -23,7 +23,10 @@ module.exports = (app, router) => {
                 { getCurrentLocale: helpers.getCurrentLocale },
                 { translate: helpers.getTranslation(ctx) },
                 { url: helpers.generateUrl(router) },
-                { absoluteUrl: helpers.getAbsoluteUrl(ctx) }
+                { absoluteUrl: helpers.getAbsoluteUrl(ctx) },
+                { getSocials: helpers.getSocials },
+                { getRoutes: helpers.getRoutes },
+                { isCurrentRoute: helpers.isCurrentRoute(ctx, router) }
             ],
             noCache: environment === 'production',
             app: app

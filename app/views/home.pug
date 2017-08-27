@@ -1,19 +1,40 @@
-extends layout
+extends blocks/layout
 
 append css
+    link(rel="stylesheet", href="/css/home.bundle.min.css")
 
 block content
 
-    h1= title
+    include includes/loader
 
-    include common/lang
+    header#header
+        include includes/header/logo
+        include includes/header/order
 
-    p= translate('test')
+    include includes/menu/toggle-menu
+    include includes/menu/circle-menu
+    include includes/menu/menu
+    include includes/menu/socials
 
-    each test, index in testList
+    main#content
+        section.container.intro-holder
+            include sections/home/intro
+        
+        section.container.features-holder
+            include sections/home/features
+        
+        section.container.tech-holder
+            include sections/home/tech
 
-        article.test
-            h2= test.title
-            p= test.text
+        section.container.presentation-holder
+            include sections/home/presentation
+
+        section.container.emotions-holder
+            include sections/home/emotions
+
+        div#footer
+            include includes/footer/button
+            include includes/footer/copyright
 
 append js
+    script(src="/js/home.bundle.dev.js")

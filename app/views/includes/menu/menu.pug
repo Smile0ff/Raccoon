@@ -1,0 +1,11 @@
+div#menu-holder
+    nav.menu
+        ul
+
+            - var routes = getRoutes()
+
+            each route in routes
+                li(class=isCurrentRoute(route.key) ? 'active' : '')
+                    a(href=url(route.key))= translate(route.name)
+    
+    include presskit

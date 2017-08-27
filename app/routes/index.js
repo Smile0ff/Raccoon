@@ -6,23 +6,15 @@ const { throwInternalServerException, throwForbiddenException, throwNotFoundExce
 const Test = require('@models/test');
 
 const home = async (ctx, next) => {
-    let testList = await Test.find({});
+    
 
-    if(!testList)
-        throwNotFoundException();
-
-    await ctx.render('home', {
-        title: 'Home Page',
-        testList
-    });
+    await ctx.render('home');
 }
 
 const about = async (ctx, next) => {
 
 
-    await ctx.render('about', {
-        title: 'About page'
-    });
+    await ctx.render('about');
 }
 
 router

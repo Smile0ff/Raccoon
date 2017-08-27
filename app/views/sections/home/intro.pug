@@ -1,0 +1,23 @@
+div.inner
+    div.info-holder
+        span.slogan= translate('intro-slogan')
+        h1= translate('intro-title')
+        span.separator
+        p= translate('intro-text')
+        div.btn
+            a(href="#")
+                span.text= translate('order-kickstarter')
+                
+div#clip-holder
+    div.inner
+        div#canvas-holder
+            canvas#clip(data-resource='../images/clip-sprite.png')
+        div#bg-circle
+        figure#clip-photo-holder
+            img(src='../images/clip.png')
+
+div.scroll-holder
+    span.scroll-line
+
+div.tooltip-holder
+    p= translate('tooltip')

@@ -16,7 +16,8 @@ class Localization{
             locales: locales,
             defaultLocale: defaultLocale,
             cookie: cookie,
-            directory: directory
+            directory: directory,
+            updateFiles: true
         });
     }
 

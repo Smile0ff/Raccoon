@@ -1,0 +1,7 @@
+div.socials-holder
+    - var socials = getSocials();
+
+    ul
+        each social in socials
+            li
+                a(href=social.link class="icon "+ social.icon)

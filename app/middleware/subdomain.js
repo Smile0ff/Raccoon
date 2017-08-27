@@ -1,8 +1,7 @@
 const origin = process.env.ORIGIN;
 
 const authorizedSubdomains = [
-    process.env.LOCALE_EN,
-    process.env.LOCALE_RU
+    process.env.LOCALE_EN
 ];
 
 const getUserSubdomain = (ctx) => {

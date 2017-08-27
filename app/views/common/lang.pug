@@ -1,8 +1,0 @@
-- 
-    var locales = getLocales()
-    var currentLocale = getCurrentLocale()
-
-ul
-    each locale in locales
-        li(class=(currentLocale === locale) ? 'active' : null)
-            a(href=absoluteUrl(locale))= locale

@@ -1,10 +1,13 @@
 const localization = require('@config/middleware/localization');
 
+const socials = require('@config/website/socials');
+const routes = require('@config/website/routes');
+
 const getLocales = () => localization.getLocales();
 const getCurrentLocale = () => localization.getCurrentLocale();
 
 const getTranslation = (ctx) => {
-    return (key) => ctx.req.__(key);
+    return (key) => ctx.res.__(key);
 }
 
 const generateUrl = (router) => {
@@ -25,10 +28,21 @@ const getAbsoluteUrl = (ctx) => {
 
 }
 
+const getSocials = () => socials;
+
+const getRoutes = () => routes;
+
+const isCurrentRoute = (ctx, router) => {
+    return (route) => ctx.router.route(route).path === ctx.path;
+}
+
 module.exports = {
     getLocales,
     getCurrentLocale,
     getTranslation,
     generateUrl,
-    getAbsoluteUrl
+    getAbsoluteUrl,
+    getSocials,
+    getRoutes,
+    isCurrentRoute
 }

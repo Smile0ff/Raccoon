@@ -1,0 +1,507 @@
+@import "reset.less";
+@import "settings.less";
+@import "icons.less";
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+html, body{
+    height: 100%;
+    min-height: 100%;
+}
+
+#page,
+#content{
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    background: @black;
+}
+
+#content > .container{
+    width: 100%;
+    position: relative;
+    background: @black;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  layout end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  laoder start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#loader-holder{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    opacity: 1;
+    background: @darkGray;
+    transition: all .4s @easing 0s;
+    visibility: visible;
+    overflow: hidden;
+    .svg-holder{
+        width: 90px;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        overflow: hidden;
+        svg path{
+            fill: @lightGray;
+        }
+    }
+    & > .text{
+        display: inline-block;
+        vertical-align: top;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        font-size: .875em;
+        font-weight: 300;
+        color: @white;
+        text-indent: .1em;
+        letter-spacing: .1em;
+        overflow: hidden;
+    }
+}
+
+#page.__loaded #loader-holder{
+    opacity: 0;
+    visibility: hidden;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  laoder end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  header start  			                  */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#header{
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    overflow: hidden;
+    & > .logo-holder{
+        width: 240px;
+        height: auto;
+        margin: 60px 0 0 60px;
+        float: left;
+        overflow: hidden;
+        a{
+            display: block;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+    }
+    & > .preorder-holder{
+        display: inline-block;
+        vertical-align: top;
+        float: right;
+        margin-top: 60px;
+        overflow: hidden;
+        a{
+            display: inline-block;
+            vertical-align: top;
+            overflow: hidden;
+            & > .text,
+            & > .line{
+                display: inline-block;
+                vertical-align: middle;
+                overflow: hidden;
+            }
+            & > .text{
+                font-size: 1em;
+                font-weight: 700;
+                text-transform: uppercase;
+                text-indent: .1em;
+                letter-spacing: .1em;
+                color: @white;
+                margin-right: 30px;
+                transition: all .4s @easing 0s;
+            }
+            & > .line{
+                width: 180px;
+                height: 3px;
+                position: relative;
+                z-index: 5;
+                border-radius: 1.5px 0 0 1.5px;
+                background: @lightGray;
+                overflow: hidden;
+                &:before{
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    content: "";
+                    background: @green;
+                    transition: all .4s @easing 0s;
+                    transform: translateX(100%);
+                    overflow: hidden;
+                }
+            }
+            &:hover{
+                .text{ color: @green; }
+                .line:before{ transform: translateX(0); }
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  header end                			      */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  menu start                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#toggle-menu{
+    width: 45px;
+    height: auto;
+    position: fixed;
+    top: 50%;
+    left: 60px;
+    z-index: 10;
+    cursor: pointer;
+    overflow: hidden;
+    & > .line{
+        display: block;
+        width: 100%;
+        height: 3px;
+        position: relative;
+        z-index: 2;
+        border-radius: 1.5px;
+        background: @white;
+        overflow: hidden;
+        & + .line{ margin-top: 9px; }
+        &:nth-child(2){ width: 15px; }
+        &:nth-child(3){ width: 30px; }
+        &:before{
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "";
+            background: @green;
+            transition: all .4s @easing 0s;
+            transform: translateX(-100%);
+            overflow: hidden;
+        }
+    }
+    &:hover .line:before{ transform: translateX(0%); }
+}
+
+#circle-menu{
+    width: 15px;
+    height: 15px;
+    position: fixed;
+    top: 50%;
+    right: 60px;
+    z-index: 10;
+    border-radius: 50%;
+    background: @darkGray;
+    overflow: hidden;
+    & > .circle{
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        background: @green;
+        transition: all .4s @easing 0s;
+        transform-origin: 50% 50%;
+        transform: scale(0);
+        overflow: hidden;
+    }
+}
+
+#menu-holder{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    background: @black;
+    transition: all .4s @easing .4s;
+    transform: translateX(-100%);
+    overflow: hidden;
+    & > .menu{
+        display: block;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        ul, li{
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        ul{
+            li{
+                opacity: 0;
+                transition: all .4s @easing 0s;
+                transform: translateY(100%);
+                text-align: center;
+                visibility: hidden;
+                & + li{ margin-top: 30px; }
+                a{
+                    display: inline-block;
+                    vertical-align: top;
+                    font-size: 1.875em;
+                    font-weight: 700;
+                    color: @white;
+                    text-indent: .1em;
+                    letter-spacing: .1em;
+                    text-transform: uppercase;
+                    transition: all .4s @easing 0s;
+                    overflow: hidden;
+                }
+                a:hover,
+                &.active a{
+                    color: @green;
+                }
+            }
+            
+        }
+    }
+    & > .presskit-holder{
+        display: inline-block;
+        vertical-align: top;
+        position: absolute;
+        right: 60px;
+        bottom: 60px;
+        opacity: 0;
+        transition: all .4s @easing 0s;
+        transform: translateX(50%);
+        visibility: hidden;
+        overflow: hidden;
+        a,
+        a > .circle,
+        a > .text{
+            display: inline-block;
+            overflow: hidden;
+        }
+        a{
+            vertical-align: top;
+            .circle{
+                vertical-align: middle;
+                width: 9px;
+                height: 9px;
+                margin-right: 15px;
+                border-radius: 50%;
+                background: @white;
+                transition: all .2s @easing 0s;
+            }
+            .text{
+                vertical-align: middle;
+                font-size: .875em;
+                font-weight: 700;
+                color: @white;
+                letter-spacing: .1em;
+                text-transform: uppercase;
+                transition: all .2s @easing 0s;
+            }
+            &:hover{
+                .circle{ background: @green; }
+                .text{ color: @green; }
+            }
+        }
+    }
+}
+
+#page.__menu-active #toggle-menu .line:before{ transform: translateX(0%); }
+#page.__menu-active #circle-menu > .circle{ transform: scale(1); }
+
+#page.__menu-active #menu-holder{
+    transition: all .4s @easing 0s;
+    transform: translateX(0%);
+    & > .menu ul li{
+        opacity: 1;
+        transition: all .8s @easing .4s;
+        transform: translateY(0%);
+        visibility: visible;
+    }
+    & > .presskit-holder{
+        opacity: 1;
+        transition: all .4s @easing .4s;
+        transform: translateX(0%);
+        visibility: visible;
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  menu end                                  */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  socials start                             */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.socials-holder{
+    width: 270px;
+    height: 45px;
+    position: fixed;
+    left: 60px;
+    bottom: 60px;
+    z-index: 10;
+    overflow: hidden;
+    ul{
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        li{
+            display: block;
+            width: 45px;
+            height: 45px;
+            float: left;
+            overflow: hidden;
+            & + li{ margin-left: 30px; }
+            & > a{
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: relative;
+                text-align: center;
+                color: @black;
+                border-radius: 50%;
+                background: @white;
+                transition: all .2s @easing 0s;
+                overflow: hidden;
+                &:before{
+                    display: inline-block;
+                    vertical-align: middle;
+                    font-size: 1.125em;
+                    line-height: 45px;
+                    color: inherit;
+                }
+                &:hover{
+                    color: @white;
+                    background: @green;
+                }
+            }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  socials end                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  buttons start                             */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  buttons start                             */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+[class^="btn"]{
+    width: 240px;
+    height: 54px;
+    position: relative;
+    z-index: 5;
+    border-radius: 27px;
+    overflow: hidden;
+    & > a{
+        display: block;
+        width: 100%;
+        height: 54px;
+        position: relative;
+        background: @white;
+        backface-visibility: hidden;
+        overflow: hidden;
+        &:before{
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "";
+            background: @green;
+            transition: all .4s @easing 0s;
+            transform: translateX(-100%);
+            overflow: hidden;
+        }
+        .text{
+            display: block;
+            width: 100%;
+            height: 54px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            font-size: .875em;
+            font-weight: 700;
+            color: @black;
+            text-align: center;
+            line-height: 54px;
+            text-transform: uppercase;
+            transition: all .4s @easing 0s;
+            background: transparent;
+            overflow: hidden;
+        }
+        &:hover{
+            &:before{ transform: translateX(0%); }
+            .text{ color: @white; }
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  buttons end                               */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  footer start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#footer{
+    width: 100%;
+    height: auto;
+    background: @black;
+    overflow: hidden;
+    & > .btn{
+        width: 360px;
+        margin: 150px auto;
+        a{
+            background: @green;
+            .text{ color: @white; }
+        }
+    }
+    & > footer{
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        & > a{
+            display: block;
+            width: 45px;
+            height: 45px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        small{
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 45px 0 30px;
+            font-size: .875em;
+            text-align: center;
+            color: @lightGray;
+            overflow: hidden;
+        }
+    }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  footer end                                */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
