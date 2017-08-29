@@ -1,0 +1,34 @@
+div.inner
+    div.title-holder
+        span.upper-title= translate('about-partners-upper-title')
+        h2= translate('about-partners-title')
+        p= translate('about-partners-text')
+
+    div.partners
+
+        ul
+            each partner, index in partners
+                li
+                    a(href=partner.link target='_blank')
+                        span.line.line-top
+                        span.line.line-right
+                        span.line.line-left
+                        span.line.line-bottom
+
+                        span.circle.circle-left-top
+                        span.circle.circle-right-top
+                        span.circle.circle-left-bottom
+                        span.circle.circle-right-bottom
+
+                        figure
+                            img(src=partner.photo.secure_url alt=partner.title)
+
+    div.investors
+        
+        - var email = getEmail()
+
+        p= translate('searching-investors')
+            a(href='mailto:'+ email)= email
+        div.btn
+            a(href='#')
+                span.text= translate('contact-us')

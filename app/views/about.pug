@@ -1,9 +1,39 @@
 extends blocks/layout
 
 append css
+    link(rel="stylesheet", href="/css/about.bundle.min.css")
 
 block content
 
+    include includes/loader
+
+    header#header
+        include includes/header/logo
+        include includes/header/order
+
+    include includes/menu/toggle-menu
+    include includes/menu/circle-menu
     include includes/menu/menu
+    include includes/menu/socials
+
+    main#content
+        section.container.intro-holder
+            include sections/about/intro
+
+        section.container.projects-holder
+            include sections/about/projects
+
+        section.container.media-holder
+            include sections/about/media
+
+        section.container.team-holder
+            include sections/about/team
+
+        section.container.partners-holder
+            include sections/about/partners
+        
+        div#footer
+            include includes/footer/copyright
 
 append js
+    script(src="/js/about.bundle.dev.js")

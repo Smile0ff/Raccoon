@@ -1,0 +1,24 @@
+{
+    "apps": [
+        {
+            "name": "Raccoon",
+            "script": "./app/bin/www",
+            "watch": false,
+            "instances": 1,
+            "exec_mode": "cluster",
+            "env": {
+                "NODE_ENV": "production"
+            }
+        },
+        {
+            "name": "Raccoon-keystone",
+            "script": "./keystone/keystone.js",
+            "watch": false,
+            "instances": 1,
+            "exec_mode": "cluster",
+            "env": {
+                "NODE_ENV": "production"
+            }
+        }
+    ]
+}

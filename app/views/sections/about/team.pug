@@ -1,0 +1,18 @@
+div.inner
+    div.title-holder
+        span.upper-title= translate('about-team-upper-title')
+        h2= translate('about-team-title')
+        p= translate('about-team-text')
+
+    div.team
+        ul
+            each associate in staff
+                li
+                    div.inner
+                        div.photo-holder
+                            figure
+                                img(src=associate.photo.secure_url alt=associate.name)
+                        div.info-holder
+                            div.info
+                                span.position= associate.position
+                                h3= associate.name

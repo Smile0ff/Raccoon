@@ -17,8 +17,11 @@ const localization = require('@middleware/localization');
 const app = new Koa();
 
 const router = require('@routes/');
+const processError = require('@routes/error');
 
 configureDatabase(app);
+
+app.use(processError);
 
 app.use(helmet());
 app.use(cors());
@@ -35,13 +38,7 @@ app.use(localization);
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-app.on('error', (err, ctx) => {
-    err.status = err.status || 500;
-    ctx.body = err.message || 'Internal Server Error';
-
-    console.error(err);
-});
-
+app.on('error', (err, ctx) => console.error(err));
 process.on('uncaughtException', (err) => console.error(err));
 process.on('unhandledRejection', (reason, p) => console.error(reason, p));
 

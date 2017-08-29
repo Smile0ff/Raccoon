@@ -1,0 +1,13 @@
+div.inner
+    span.upper-title= translate('about-intro-welcome')
+    h1= translate('about-intro-title')
+    p= translate('about-intro-text')
+    span.quote= translate('about-intro-author')
+
+div.scroll-holder
+    span.scroll-line
+
+- var email = getEmail()
+
+a(class='email-holder' href='mailto:'+ email)
+    span.text= email

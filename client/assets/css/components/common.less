@@ -401,7 +401,40 @@ html, body{
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-/*  buttons start                             */
+/*  scroll start                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.scroll-holder{
+    display: block;
+    width: 3px;
+    height: 120px;
+    position: absolute;
+    left: 50%;
+    bottom: 75px;
+    border-radius: 1.5px;
+    background: @darkGray;
+    transform: translateX(-50%);
+    overflow: hidden;
+    & > .scroll-line{
+        display: block;
+        width: 100%;
+        height: 15px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 1.5px;
+        background: @green;
+        transform: translateY(-15px);
+        animation: scrolling 2.4s @easing 0s infinite;
+        overflow: hidden;
+    }
+}
+
+@keyframes scrolling{
+    0% { transform: translateY(-15px); }
+    100% { transform: translateY(120px); }
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  scroll end                                */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

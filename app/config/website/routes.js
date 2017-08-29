@@ -12,6 +12,10 @@ const routes = [
         key: 'showreel'
     },
     {
+        name: 'order',
+        key: 'order'
+    },
+    {
         name: 'contacts',
         key: 'contacts'
     },

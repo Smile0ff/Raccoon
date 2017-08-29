@@ -1,0 +1,26 @@
+div.inner
+    div.title-holder
+        span.upper-title= translate('about-media-upper-title')
+        h2= translate('about-media-title')
+        p= translate('about-media-text')
+
+    div.media
+
+        ul
+            each m in media
+                li
+                    a(href=m.link target='_blank')
+                        figure
+                            img(src=m.photo.secure_url alt=m.title)
+
+        div.contacts-holder
+                
+            - var email = getEmail()
+
+            a(href='mailto:'+ email)
+                span.line
+                span.text= email
+
+            a(href='../presskit.pdf' target='_blank')
+                span.line
+                span.text= translate('presskit')

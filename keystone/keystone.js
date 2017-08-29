@@ -26,6 +26,9 @@ keystone.init({
 	'auth': true,
 	'user model': 'User',
 
+	'wysiwyg override toolbar': false,
+	'wysiwyg menubar': false,
+
 	'port': process.env.KEYSTONE_PORT,
 	'mongo': process.env.MONGO_URI
 });
@@ -54,8 +57,11 @@ keystone.set('routes', require('./routes'));
 
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
-	users: 'users',
-	authors: ['authors', 'posts']
+	projects: 'projects',
+	staff: 'staffs',
+	community: ['media', 'partners'],
+	meta: 'meta',
+	users: 'users'
 });
 
 // Start Keystone to connect to your database and initialise the web server

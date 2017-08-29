@@ -10,13 +10,12 @@ const cssTask = () => {
         cssOutPath = join(config.build, 'css'),
 
         fileList = readdirSync(cssInPath),
-        fileNameRegExp = new RegExp(/\w+(?=\.less$)/, 'gi'),
         fileName = '';
 
     fileList.map((file) => {
         if(extname(file) !== '.less') return;
 
-        fileName = fileNameRegExp.exec(file)[0];
+        fileName = /\w+(?=\.less$)/gi.exec(file)[0];
 
         exec('lessc --clean-css '+ cssInPath +'/'+ file +' --autoprefix="last 2 versions" '+ cssOutPath +'/'+ fileName +'.bundle.min.css');
     });

@@ -1,0 +1,28 @@
+div.inner
+    div.title-holder
+        span.upper-title= translate('about-projects-upper-title')
+        h2= translate('about-projects-title')
+        p= translate('about-projects-text')
+    
+    div.projects
+        each project in projects
+            article.project
+
+                div.inner
+                    div.info-holder
+                        div.entitled
+                            span.line
+                            h3= project.title
+
+                        div.info!= project.description
+
+                    div.photo-holder
+                        figure
+                            img(src=project.photo.secure_url alt=project.title)
+
+                span.release-holder= project.release
+                    
+                if project.order
+                    div.btn
+                        a(href='#')
+                            span.text= translate('order')
