@@ -10,7 +10,7 @@ app.env = process.env.NODE_ENV || 'development';
 app.subdomainOffset = 2;
 app.userSubdomain = '';
 
-app.keys = [process.env.COOKIE_SECRET];
+app.keys = [process.env.COOKIE_SECRET, process.env.CSRF_SECRET];
 
 const port = process.env.PORT || 3000;
 

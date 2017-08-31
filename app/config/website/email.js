@@ -1,3 +1,3 @@
-const email = "raccoon.world.info@gmail.com";
+const email = process.env.RECIPIENT;
 
 module.exports = email;

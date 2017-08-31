@@ -1,0 +1,25 @@
+div.inner
+
+    div.title-holder
+        span.upper-title= translate('showreel-upper-title')
+        h1= translate('showreel-title')
+    
+    div#play-button
+        span.shadow#play-button-shadow
+        span.circle
+            span.play
+
+    div.info-holder
+        p= translate('showreel-text')
+
+div.btn
+    a(href='')
+        span.text= translate('apply-now')
+
+- var videoID = getVideo('showreel')
+
+div#player-holder
+    div.close#close-button
+        span.line
+        span.line
+    iframe(id='video' src='https://www.youtube.com/embed/'+ videoID +'?autoplay=0&controls=1&showinfo=0&color=black' frameborder='0' allowfullscreen)

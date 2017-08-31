@@ -6,6 +6,8 @@ div.inner
     div#play-button
         span.shadow
         span.circle
+    
+    - var videoID = getVideo('presentation')
 
     div#presentation-video
-        iframe(id='video' src='https://www.youtube.com/embed/8tW7swP1opA?autoplay=0&controls=1&showinfo=0&color=black' frameborder='0' allowfullscreen)
+        iframe(id='video' src='https://www.youtube.com/embed/'+ videoID +'?autoplay=0&controls=1&showinfo=0&color=black' frameborder='0' allowfullscreen)

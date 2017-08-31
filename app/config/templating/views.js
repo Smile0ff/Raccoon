@@ -27,6 +27,7 @@ module.exports = (app, router) => {
                 { getSocials: helpers.getSocials },
                 { getRoutes: helpers.getRoutes },
                 { getEmail: helpers.getEmail },
+                { getVideo: helpers.getVideo },
                 { isCurrentRoute: helpers.isCurrentRoute(ctx, router) }
             ],
             noCache: environment === 'production',

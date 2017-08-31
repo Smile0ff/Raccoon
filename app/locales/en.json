@@ -64,5 +64,16 @@
 	"about-partners-title": "We appreciate partnership",
 	"about-partners-text": "Investors and Mentors",
 	"contact-us": "contact us",
-	"searching-investors": "We are searching for investors! If you’re considering investing in Raccoon.world, please request a detailed presentation, business plan and terms of partnership by e-mail: "
+	"searching-investors": "We are searching for investors! If you’re considering investing in Raccoon.world, please request a detailed presentation, business plan and terms of partnership by e-mail: ",
+	"showreel-upper-title": "watch",
+	"showreel-title": "showreel",
+	"showreel-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae ex neque  orem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue fringilla est non sagittis",
+	"apply-now": "apply now",
+	"contacts-upper-title": "say hello",
+	"contacts-title": "Get in touch",
+	"send": "send",
+	"feedback-name-error": "Name is required",
+	"feedback-email-error": "Email is required",
+	"feedback-message-error": "Message is required",
+	"success": "Message was sent successfully, thank you for your appeal"
 }

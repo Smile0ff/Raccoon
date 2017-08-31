@@ -22,6 +22,10 @@ html, body{
     position: relative;
     background: @black;
 }
+
+//webkit fix - prevent transition from firing before page load
+body.__preload * { transition: none !important; }
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  layout end                                */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

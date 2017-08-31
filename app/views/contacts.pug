@@ -1,0 +1,24 @@
+extends blocks/layout
+
+append css
+    link(rel="stylesheet", href="/css/contacts.bundle.min.css")
+
+block content
+
+    include includes/loader
+
+    header#header
+        include includes/header/logo
+        include includes/header/order
+
+    include includes/menu/toggle-menu
+    include includes/menu/circle-menu
+    include includes/menu/menu
+    include includes/menu/socials
+
+    main#content
+        section.container.contacts-holder
+            include sections/contacts/feedback
+
+append js
+    script(src="/js/contacts.bundle.dev.js")

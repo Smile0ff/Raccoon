@@ -3,6 +3,7 @@ const localization = require('@config/middleware/localization');
 const socials = require('@config/website/socials');
 const routes = require('@config/website/routes');
 const email = require('@config/website/email');
+const video = require('@config/website/video');
 
 const getLocales = () => localization.getLocales();
 const getCurrentLocale = () => localization.getCurrentLocale();
@@ -35,6 +36,8 @@ const getRoutes = () => routes;
 
 const getEmail = () => email;
 
+const getVideo = (key) => video[key];
+
 const isCurrentRoute = (ctx, router) => {
     return (route) => ctx.router.route(route).path === ctx.path;
 }
@@ -48,5 +51,6 @@ module.exports = {
     getSocials,
     getRoutes,
     getEmail,
+    getVideo,
     isCurrentRoute
 }

@@ -2,11 +2,14 @@ const Koa = require('koa');
 
 const configureDatabase = require('@config/database/mongoose');
 
+const favicon = require('@config/middleware/favicon');
 const helmet = require('@config/middleware/helmet');
 const cors = require('@config/middleware/cors');
 const logger = require('@config/middleware/logger');
 const body = require('@config/middleware/body');
 const session = require('@config/middleware/session');
+const csrf = require('@config/middleware/csrf');
+const validator = require('@config/middleware/validator');
 const static = require('@config/middleware/static');
 
 const configureViews = require('@config/templating/views');
@@ -23,10 +26,13 @@ configureDatabase(app);
 
 app.use(processError);
 
+app.use(favicon());
 app.use(helmet());
 app.use(cors());
 app.use(logger());
 app.use(body());
+app.use(csrf);
+app.use(validator());
 app.use(session(app));
 app.use(static());
 

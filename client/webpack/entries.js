@@ -4,7 +4,9 @@ const config = require('../config');
 
 const entries = {
     home: join(config.js, 'pages/home'),
-    about: join(config.js, 'pages/about')
+    about: join(config.js, 'pages/about'),
+    showreel: join(config.js, 'pages/showreel'),
+    contacts: join(config.js, 'pages/contacts')
 }
 
 module.exports = entries;

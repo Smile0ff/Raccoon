@@ -7,6 +7,7 @@ class LocaleType extends mongoose.SchemaType{
 
     constructor(key, options){
         super(key, options);
+
     }
 
     cast(value){

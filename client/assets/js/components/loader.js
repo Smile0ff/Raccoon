@@ -12,6 +12,7 @@ class Loader{
 
     handleLoaded(){
         let timer = setTimeout(() => {
+            document.body.classList.remove('__preload');
             page.classList.add('__loaded');
             clearTimeout(timer);
         }, 400);

@@ -1,0 +1,57 @@
+div.inner
+    div.title-holder
+        span.upper-title= translate('contacts-upper-title')
+        h1= translate('contacts-title')
+
+    form(action=url('contacts-post') method='POST' enctype='application/x-www-form-urlencoded' id='feedback-form')
+        
+        if (flash && flash.success)
+            span.success= flash.success
+        
+        input(type='hidden', name='_csrf', value=csrf)
+
+        div.form-control
+            input(
+                type='text'
+                name='name'
+                value=''
+                placeholder='Your name'
+                id='feedback-name'
+            )
+
+            if (flash && flash.name)
+                span.error= flash.name.msg
+
+        div.form-control
+            input(
+                type='email'
+                name='email'
+                value=''
+                placeholder='Your email'
+                id='feedback-email'
+            )
+
+            if (flash && flash.email)
+                span.error= flash.email.msg
+
+        div.form-control
+            textarea(
+                name='message'
+                value=''
+                placeholder='Your message'
+                id='feedback-message'
+            )
+
+            if (flash && flash.message)
+                span.error= flash.message.msg
+        
+        button(type='submit')
+            span.btn= translate('send')
+
+div.email-holder
+        
+    - var email = getEmail()
+
+    a(href=email)
+        span.circle
+        span.text= email
