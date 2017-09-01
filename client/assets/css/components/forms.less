@@ -69,6 +69,7 @@ form > .form-control{
 input[type='text'],
 input[type='email'],
 input[type='url'],
+input[type='number'],
 input[type='password'],
 input[type='search'],
 input[type='tel']{
@@ -84,6 +85,8 @@ input[type='tel']{
     border-radius: 27px;
     background: transparent;
     box-sizing: border-box;
+    outline: none;
+    box-shadow: none;
     overflow: hidden;
     &:focus,
     &:hover{
@@ -91,6 +94,13 @@ input[type='tel']{
         background: @darkGray;
     }
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number]{ -moz-appearance:textfield; }
 
 textarea{
     display: block;

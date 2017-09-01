@@ -1,3 +1,9 @@
 const validator = require('koa-middle-validator');
 
-module.exports = () => validator();
+const isNumber = (value) => !isNaN(value);
+
+module.exports = () => validator({
+    customValidators: {
+        isNumber: isNumber
+    }
+});

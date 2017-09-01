@@ -61,6 +61,7 @@ keystone.set('nav', {
 	staff: 'staffs',
 	community: ['media', 'partners'],
 	meta: 'meta',
+	messages: ['feedbacks', 'orders'],
 	users: 'users'
 });
 

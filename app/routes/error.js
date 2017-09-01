@@ -1,13 +1,3 @@
-const emmitError = (err, ctx) => ctx.app.emit('error', err, ctx);
-
-const handleNotFound = async (err, ctx) => {
-    await ctx.render('errors/not-found', { err });
-}
-
-const handleCommon = async (err, ctx) => {
-    await ctx.render('errors/common', { err });
-}
-
 const processError = async (ctx, next) => {
 
     try{
@@ -18,14 +8,10 @@ const processError = async (ctx, next) => {
             ctx.throw(404, 'Page Not Found');    
 
     } catch(err){
+        ctx.status = err.status || 500;
+        await ctx.render('errors', { err });
 
-        (err.status !== 404)
-            ? handleCommon(err, ctx)
-            : handleNotFound(err, ctx)
-        ;
-
-        emmitError(err, ctx);
-
+        ctx.app.emit('error', err, ctx);
     }
     
 }

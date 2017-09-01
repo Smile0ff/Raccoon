@@ -1,0 +1,27 @@
+extends blocks/error-layout
+
+append css
+    link(rel="stylesheet", href="/css/error.bundle.min.css")
+
+block content
+
+    header#header
+        include includes/header/logo
+
+    main#content
+        section.container.error-holder
+
+            div.status-holder
+                span.status= err.status
+
+            div.title-holder
+                span.upper-title= err.message
+                
+                - var errorTitle = (err.status === 404) ? 'error-not-found-title' : 'error-title';
+
+                h1= translate(errorTitle)
+            
+            div.btn
+                a(href=url('home'))
+                    span.text= translate('back-to-home')
+

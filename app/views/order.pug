@@ -1,0 +1,24 @@
+extends blocks/layout
+
+append css
+    link(rel="stylesheet", href="/css/order.bundle.min.css")
+
+block content
+
+    include includes/loader
+
+    header#header
+        include includes/header/logo
+        include includes/header/order
+
+    include includes/menu/toggle-menu
+    include includes/menu/circle-menu
+    include includes/menu/menu
+    include includes/menu/socials
+
+    main#content
+        section.container.order-holder
+            include sections/order/order
+
+append js
+    script(src="/js/order.bundle.dev.js")

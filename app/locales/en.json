@@ -75,5 +75,14 @@
 	"feedback-name-error": "Name is required",
 	"feedback-email-error": "Email is required",
 	"feedback-message-error": "Message is required",
-	"success": "Message was sent successfully, thank you for your appeal"
+	"success": "Message was sent successfully, thank you for your appeal",
+	"order-upper-title": "order now",
+	"order-title": "become the owner of the amazing device",
+	"order-submit": "order",
+	"order-name-error": "Name is required",
+	"order-email-error": "Email is required",
+	"order-amount-error": "Number is required",
+	"error-not-found-title": "is there anybody out there",
+	"error-title": "wandering  around the space",
+	"back-to-home": "back to home"
 }

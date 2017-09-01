@@ -4,7 +4,6 @@ const router = new Router();
 const mailer = require('@services/mailer/mailer');
 const compileTemplate = require('@services/templating/compileTemplate');
 
-const feedbackValidator = require('./validators/feedback');
 const { throwInternalServerException, throwNotFoundException } = require('./exceptions/http');
 
 const Meta = require('@models/meta');
@@ -12,6 +11,11 @@ const Project = require('@models/project');
 const Media = require('@models/media');
 const Staff = require('@models/staff');
 const Partner = require('@models/partner');
+const Feedback = require('@models/feedback');
+const Order = require('@models/order');
+
+const feedbackValidator = require('./validators/feedback');
+const orderValidator = require('./validators/order');
 
 const home = async (ctx, next) => {
     let meta = await Meta.findOne({ route: 'home' });
@@ -79,7 +83,7 @@ const contactsPOST = async (ctx, next) => {
 
     if(hasErrors){
         ctx.session.flash = errors;
-        return await ctx.redirect(router.url('contacts-get'));
+        return await ctx.redirect(router.url('contacts'));
     }
 
     let verifiedConnection = await mailer.verify();
@@ -91,20 +95,76 @@ const contactsPOST = async (ctx, next) => {
         sendError = await mailer.send(feedbackHTML);
     
     if(sendError)
-        throwInternalServerException('Error was occured while sending email, please try again later');
+        throwInternalServerException('Error was occured while sending your feedback, please try again later');
 
-    ctx.session.flash = {
-        success: ctx.res.__('success')
-    }
+    let feedback = new Feedback({ name, email, message }),
+        { err, doc } = await feedback.save();
+
+    if(err)
+        throwInternalServerException('Error was occured while saving your feedback, please try again later');
+
+    ctx.session.flash = { success: ctx.res.__('success') };
     
-    await ctx.redirect(router.url('contacts-get'));
+    await ctx.redirect(router.url('contacts'));
+}
+
+const orderGET = async (ctx, next) => {
+    let meta = await Meta.findOne({ route: 'order' });
+
+    if(!meta)
+        throwInternalServerException('In order to display things correctly metadata must be filled');
+
+    if(ctx.session.flash){
+        ctx.state.flash = ctx.session.flash;
+        delete ctx.session.flash;
+    }
+
+    ctx.state.csrf = ctx.csrf;
+
+    await ctx.render('order', {
+        meta
+    });
+}
+
+const orderPOST = async (ctx, next) => {
+    let { name, email, amount, message } = ctx.request.body;
+
+    let { hasErrors, errors } = await orderValidator.validate(ctx);
+
+    if(hasErrors){
+        ctx.session.flash = errors;
+        return await ctx.redirect(router.url('order'));
+    }
+
+    let verifiedConnection = await mailer.verify();
+
+    if(!verifiedConnection)
+        throwInternalServerException('SMTP connection not verified, please try again');
+
+    let orderHTML = compileTemplate('order.pug', { name, email, amount, message }),
+        sendError = await mailer.send(orderHTML);
+    
+    if(sendError)
+        throwInternalServerException('Error was occured while sending your order, please try again later');
+
+    let order = new Order({ name, email, amount, message }),
+        { err, doc } = await order.save();
+
+    if(err)
+        throwInternalServerException('Error was occured while saving your order, please try again later');
+
+    ctx.session.flash = { success: ctx.res.__('success') };
+
+    await ctx.redirect(router.url('order'));
 }
 
 router
     .get('home', '/', home)
     .get('about', '/about', about)
     .get('showreel', '/showreel', showreel)
-    .get('contacts-get', '/contacts', contactsGET)
-    .post('contacts-post', '/contacts', contactsPOST);
+    .get('contacts', '/contacts', contactsGET)
+    .post('contacts-post', '/contacts', contactsPOST)
+    .get('order', '/order', orderGET)
+    .post('order-post', '/order', orderPOST);
 
 module.exports = router;

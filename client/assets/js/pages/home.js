@@ -1,7 +1,9 @@
 import HomeContainer from '@containers/homeContainer';
 
 import Loader from '@components/loader';
+import isMobile from '@utils/isMobile';
 
-new Loader();
+if(isMobile())
+    new Loader();
 
 window.addEventListener('load', () => new HomeContainer());

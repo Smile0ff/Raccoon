@@ -1,0 +1,66 @@
+div.inner
+    div.title-holder
+        span.upper-title= translate('order-upper-title')
+        h1= translate('order-title')
+
+    form(action=url('order-post') method='post' enctype='application/x-www-form-urlencoded' id='order-form')
+        
+        if (flash && flash.success)
+            span.success= flash.success
+
+        input(
+            type='hidden'
+            name='_csrf'
+            value=csrf
+        )
+
+        div.form-control
+
+            input(
+                type='text'
+                name='name'
+                value=''
+                placeholder='Your name'
+                id='order-name'
+            )
+        
+            if (flash && flash.name)
+                span.error= flash.name.msg
+
+        div.form-control
+
+            input(
+                type='email'
+                name='email'
+                value=''
+                placeholder='Your email'
+                id='order-email'
+            )
+
+            if (flash && flash.email)
+                span.error= flash.email.msg
+
+        div.form-control
+
+            input(
+                type='number'
+                name='amount'
+                value=''
+                placeholder='amount of clips'
+                id='order-amount'
+            )
+
+            if (flash && flash.amount)
+                span.error= flash.amount.msg
+
+        div.form-control
+
+            textarea(
+                name='message'
+                value=''
+                placeholder='Your message'
+                id='order-message'
+            )
+
+        button(type='submit')
+            span.btn= translate('order-submit')

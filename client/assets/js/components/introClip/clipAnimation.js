@@ -4,6 +4,7 @@ import '@utils/requestAnimationFrame';
 
 import Clip from './clip';
 
+const page = document.querySelector('#page');
 const clipHolder = document.querySelector('#clip-holder');
 const canvasHolder = document.querySelector('#canvas-holder');
 
@@ -44,6 +45,9 @@ class ClipAnimation extends EventEmitter{
     }
 
     handleResourceLoaded(){
+        document.body.classList.remove('__preload');
+        page.classList.add('__loaded');
+
         this.loop();
     }
 

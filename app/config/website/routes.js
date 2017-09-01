@@ -17,7 +17,7 @@ const routes = [
     },
     {
         name: 'contacts',
-        key: 'contacts-get'
+        key: 'contacts'
     },
 ]
 

@@ -6,7 +6,8 @@ const entries = {
     home: join(config.js, 'pages/home'),
     about: join(config.js, 'pages/about'),
     showreel: join(config.js, 'pages/showreel'),
-    contacts: join(config.js, 'pages/contacts')
+    contacts: join(config.js, 'pages/contacts'),
+    order: join(config.js, 'pages/order')
 }
 
 module.exports = entries;
