@@ -3,22 +3,23 @@ div.inner
         span.upper-title= translate('about-projects-upper-title')
         h2= translate('about-projects-title')
         p= translate('about-projects-text')
-    
+
     div.projects
         each project in projects
             article.project
 
                 div.inner
+                    
+                    div.photo-holder
+                        figure
+                            img(src=project.photo.secure_url alt=project.title)
+
                     div.info-holder
                         div.entitled
                             span.line
                             h3= project.title
 
-                        div.info!= project.description
-
-                    div.photo-holder
-                        figure
-                            img(src=project.photo.secure_url alt=project.title)
+                        div.info!= project.description  
 
                 span.release-holder= project.release
                     

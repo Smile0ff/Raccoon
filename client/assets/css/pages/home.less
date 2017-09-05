@@ -437,7 +437,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 20;
+    z-index: 5;
     overflow: hidden;
     &.__active{
         display: block;
@@ -464,6 +464,7 @@
     & > .inner{
         width: 100%;
         height: auto;
+        padding-top: 180px;
         overflow: hidden;
         & > .photo-holder{
             width: 100%;
@@ -471,10 +472,7 @@
             margin-top: 60px;
             overflow: hidden;
         }
-        .btn{
-            width: 300px;
-            margin: 150px auto;
-        }
+        .btn{ margin: 150px auto; }
     }
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -484,6 +482,33 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  adaptive start                            */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @laptop{
+
+    .title-holder{
+        .upper-title{ font-size: 1em; }
+        h2{
+            font-size: 1.875em;
+            font-size: 1.5625vw;
+        }
+    }
+    
+    .intro-holder{
+        & > .inner{
+            & > .info-holder{
+                .slogan{ font-size: 1em; }
+                h1{
+                    font-size: 3.75em;
+                    font-size: 3.125vw;
+                    margin-bottom: 15px;
+                }
+                .separator{ display: none; }
+                .btn{ margin-top: 45px; }
+            }
+        }
+    }
+
+}
+
 @media only screen and @tablet{
     
     .title-holder{
@@ -644,10 +669,110 @@
                 margin-top: 60px;
                 overflow: hidden;
             }
-            .btn{
-                width: 300px;
-                margin: 90px auto;
+            .btn{ margin: 60px auto; }
+        }
+    }
+
+}
+
+@media only screen and @smartphone{
+
+    .title-holder{
+        .upper-title{ font-size: .875em; }
+        h2{ font-size: 1.25em; }
+        .decorator{ display: none; }
+    }
+
+    .intro-holder{
+        & > .inner{
+            padding: 150px 30px 0 90px;
+            box-sizing: border-box;
+            & > .info-holder{
+                .slogan{
+                    font-size: .875em;
+                }
+                h1{
+                    font-size: 1.875em;
+                    font-weight: bold;
+                    margin-bottom: 15px;
+                }
+                .separator{ display: none; }
+                p{ font-size: .875em; }
+                .btn{
+                    width: 210px;
+                    margin-top: 45px;
+                }
             }
+        }
+    }
+
+    .features-holder{
+        .inner{
+            padding: 90px 30px 0 90px;
+            box-sizing: border-box;
+            & > .clip-holder{
+                margin-top: 60px;
+                padding: 0;
+            }
+            & > .features{
+                margin-top: 30px;
+                ul{
+                    display: block;
+                    li{
+                        display: block;
+                        width: 100%;
+                        height: auto;
+                        margin-top: 30px;
+                        flex-flow: none;
+                        &:nth-child(3n+2){ margin: 30px 0 0; }
+                        .icon{ display: none; }
+                        .info{
+                            width: 100%;
+                            height: auto;
+                            margin: 15px 0 0 0;
+                            h3{ color: @green; }
+                            p{ font-size: .875em; }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .tech-holder{
+        & > .inner{
+            padding: 90px 30px 0 90px;
+            .scheme-holder{
+                width: 100%;
+                margin: 60px auto 0;
+            }
+            .tech{
+                margin-top: 60px;
+                ul li .inner .text{ font-size: 1em; }
+            }
+        }
+    }
+
+    .presentation-holder{
+        & > .inner{
+            padding: 90px 30px 0 90px;
+            box-sizing: border-box;
+        }
+    }
+
+    #presentation-video{ margin: 30px auto 0; }
+
+    .emotions-holder{
+        & > .inner{
+            padding: 90px 30px 0 90px;
+            box-sizing: border-box;
+            & > .photo-holder{
+                width: 100%;
+                height: auto;
+                margin-top: 30px;
+                overflow: hidden;
+            }
+            .btn{ width: 100%; }
         }
     }
 

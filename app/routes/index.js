@@ -7,6 +7,8 @@ const compileTemplate = require('@services/templating/compileTemplate');
 const { throwInternalServerException, throwNotFoundException } = require('./exceptions/http');
 
 const Meta = require('@models/meta');
+const Home = require('@models/home');
+const About = require('@models/about');
 const Project = require('@models/project');
 const Media = require('@models/media');
 const Staff = require('@models/staff');
@@ -18,38 +20,32 @@ const feedbackValidator = require('./validators/feedback');
 const orderValidator = require('./validators/order');
 
 const home = async (ctx, next) => {
-    let meta = await Meta.findOne({ route: 'home' });
+    let meta = await Meta.findOne({ route: 'home' }),
+        home = await Home.findLastUpdated();
 
-    if(!meta)
-        throwInternalServerException('In order to display things correctly metadata must be filled');
+    if(!home)
+        throwInternalServerException('Intro data must be set to display things correctly');
 
-    await ctx.render('home', { meta });
+    await ctx.render('home', {
+        meta,
+        home
+    });
 }
 
 const about = async (ctx, next) => {
     let meta = await Meta.findOne({ route: 'about' }),
+        about = await About.findLastUpdated(),
         projects = await Project.find({}),
         media = await Media.find({}),
         staff = await Staff.find({}),
         partners = await Partner.find({});
 
-    if(!meta)
-        throwInternalServerException('In order to display things correctly metadata must be filled');
-
-    if(!projects.length)
-        throwInternalServerException('In order to display things correctly at least one project must be created');
-
-    if(!media.length)
-        throwInternalServerException('In order to display things correctly at least one media must be created');
-
-    if(!staff.length)
-        throwInternalServerException('In order to display things correctly at least one associate must be added');
-
-    if(!partners.length)
-        throwInternalServerException('In order to display things correctly at least one partner must be added');
+    if(!about)
+        throwInternalServerException('Intro data must be set to display things correctly');
 
     await ctx.render('about', {
         meta,
+        about,
         projects,
         media,
         staff,
@@ -110,9 +106,6 @@ const contactsPOST = async (ctx, next) => {
 
 const orderGET = async (ctx, next) => {
     let meta = await Meta.findOne({ route: 'order' });
-
-    if(!meta)
-        throwInternalServerException('In order to display things correctly metadata must be filled');
 
     if(ctx.session.flash){
         ctx.state.flash = ctx.session.flash;

@@ -144,7 +144,7 @@
                     overflow: hidden;
                     & > .info-holder{
                         width: 50%;
-                        float: left;
+                        float: right;
                         .entitled{
                             width: 100%;
                             height: auto;
@@ -218,7 +218,7 @@
                     }
                     & > .photo-holder{
                         width: 50%;
-                        float: left;
+                        float: right;
                         figure{
                             width: 100%;
                             height: auto;
@@ -640,13 +640,411 @@
                     color: @green;
                 }
             }
-            .btn{
-                width: 300px;
-                float: right;
-            }
+            .btn{ float: right; }
         }
     }
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /*  partners end                              */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive start                            */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media only screen and @tablet{
+    
+    .title-holder{
+        .upper-title{
+            font-size: 1em;
+            text-align: left;
+            text-indent: 0em;
+        }
+        h2{
+            font-size: 1.875em;
+            margin: 30px 0 15px;
+            text-align: left;
+            text-indent: 0em;
+        }
+        p{
+            color: @white;
+            text-align: left;
+        }
+    }
+
+    .intro-holder{
+        height: auto;
+        & > .inner{
+            position: relative;
+            top: 0;
+            left: 0;
+            padding: 180px 14.6484375% 0 17.578125%;
+            transform: translateY(0);
+            box-sizing: border-box;
+            .upper-title{ font-size: 1em; }
+            h1{
+                font-size: 3em;
+                margin: 15px 0 30px;
+            }
+            .quote{ margin-top: 45px; }
+        }
+        & > .email-holder{ display: none; }
+    }
+    
+    .projects-holder{
+        & > .inner{
+            padding: 180px 0 0 0;
+            box-sizing: border-box;
+            .title-holder{
+                width: 100%;
+                margin: 0 auto;
+                padding: 0 14.6484375% 0 17.578125%;
+                box-sizing: border-box;
+                p{ padding: 0 ; }
+            }
+            & > .projects{
+                padding: 0 30px 0 17.578125%;
+                box-sizing: border-box;
+                .project{
+                    margin-top: 90px;
+                    & > .inner{
+                        & > .photo-holder{
+                            width: 100%;
+                            float: none;
+                            figure{
+                                width: 50%;
+                                height: auto;
+                                padding-right: 0;
+                                margin-bottom: 60px;
+                                box-sizing: border-box;
+                                overflow: hidden;
+                                img{ max-width: 100%; }
+                            }
+                        }
+                        & > .info-holder{
+                            width: 100%;
+                            float: none;
+                            .entitled{
+                                .line{
+                                    width: 120px;
+                                    margin-right: 15px;
+                                }
+                            }
+                            .info{ padding: 60px 60px 0 0; }
+                        }
+                    }
+                    & > .release-holder{
+                        right: 0;
+                        font-size: .75em;
+                    }
+                    & > .btn{ margin: 60px 0 0; }
+                }
+            }
+        }
+    }
+
+    .media-holder{
+        & > .inner{
+            padding: 180px 14.6484375% 0 17.578125%;
+            box-sizing: border-box;
+            .title-holder{
+                width: 100%;
+                p{ padding: 0; }
+            }
+            .media{
+                padding: 0;
+                ul{
+                    margin: 30px 0 60px;
+                    li{
+                        display: block;
+                        width: 25%;
+                        float: left;
+                        padding: 15px;
+                        margin: 0;
+                        box-sizing: border-box;
+                        overflow: hidden;
+                    }
+                }
+                .contacts-holder{
+                    text-align: left;
+                    & > a{
+                        display: block;
+                        & + a{ display: none; }
+                        &:hover{
+                            .line:before{ transform: translateX(-100%); }
+                            .text{ color: @white; }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .team-holder{
+        & > .inner{
+            padding: 180px 14.6484375% 0 17.578125%;
+            box-sizing: border-box;
+            .title-holder{
+                width: 100%;
+                margin: 0 auto;
+                p{ padding: 0; }
+            }
+            & > .team{
+                margin-top: 60px;
+                ul{
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    overflow: hidden;
+                    li{
+                        width: 50%;
+                        padding-top: 50%;
+                        .inner{
+                            .photo-holder{
+                                figure img{
+                                    transition: all .4s @easing 0s;
+                                    filter: grayscale(0%);
+                                }
+                            }
+                            .info-holder{
+                                background: transparent;
+                                transition: none;
+                                transform: translateY(0%);
+                                .info{
+                                    opacity: 1;
+                                    padding: 0 15px 15px;
+                                    box-sizing: border-box;
+                                    transition: none;
+                                    transform: translateY(0%);
+                                    visibility: visible;
+                                }
+                            }
+                        }
+                        &:hover .inner .photo-holder figure img{ filter: grayscale(0%); }
+                    }
+                }
+            }
+        }
+    }
+
+    .partners-holder{
+        & > .inner{
+            padding: 180px 14.6484375% 0 17.578125%;
+            box-sizing: border-box;
+            .title-holder{
+                width: 100%;
+                p{ padding: 0; }
+            }
+            .partners{
+                margin-top: 60px;
+                ul{
+                    padding: 3px;
+                    li{
+                        display: block;
+                        width: 50%;
+                        padding-top: 50%;
+                        & > a{
+                            .line:before{ display: none; }
+                            figure{
+                                width: 60px;
+                                height: 60px;
+                                opacity: 1;
+                                margin: -30px 0 0 -30px;
+                            }
+                        }
+                        &:nth-child(4n+1) a{
+                            .line-left{ display: block; }
+
+                            .circle-left-top,
+                            .circle-left-bottom{
+                                display: block;
+                            }
+                        }
+                        &:nth-child(4n+4) a{
+                            .line-right{ display: block; }
+
+                            .circle-right-top,
+                            .circle-right-bottom{
+                                display: block;
+                            }
+                        }
+                        &:hover a .circle{ background: @lightGray; }
+                    }
+                }
+            }
+            .investors{
+                margin: 60px 0 90px;
+                padding: 0;
+                p{
+                    display: block;
+                    max-width: 100%;
+                    text-align: left;
+                    color: @white;
+                    font-size: .875em;
+                    & > a{
+                        display: inline-block;
+                        color: @green;
+                    }
+                }
+                .btn{
+                    width: 300px;
+                    margin: 60px 0 0;
+                    float: none;
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @smartphone{
+    
+    .title-holder{
+        .upper-title{ font-size: .875em; }
+        h2{
+            font-size: 1.25em;
+            margin: 15px 0;
+        }
+        p{ font-size: .875em; }
+    }
+
+    .intro-holder{
+        height: auto;
+        & > .inner{
+            width: 100%;
+            height: auto;
+            padding: 150px 30px 0 90px;
+            box-sizing: border-box;
+            .upper-title{ font-size: .875em; }
+            h1{
+                font-size: 1.875em;
+                margin: 15px 0;
+            }
+            p{ font-size: .875em; }
+            .quote{ margin-top: 45px; }
+        }
+    }
+
+    .projects-holder{
+        & > .inner{
+            padding: 90px 30px 0 90px;
+            box-sizing: border-box;
+            .title-holder{ padding: 0; }
+            & > .projects{
+                padding: 0;
+                box-sizing: border-box;
+                .project{
+                    margin-top: 60px;
+                    & > .inner{
+                        & > .photo-holder{
+                            figure{ width: 75%; }
+                        }
+                        & > .info-holder{
+                            .entitled{
+                                .line{ display: none; }
+                                h3{
+                                    display: block;
+                                    font-size: 1.25em;
+                                }
+                            }
+                            .info{
+                                padding: 30px 0 0 0;
+                                ul li{
+                                    font-size: .875em;
+                                    padding: 0;
+                                    &:before{ display: none; }
+                                    & > strong{ color: @green; }
+                                }
+                            }
+                        }
+                    }
+                    & > .btn{ margin: 45px 0 0; }
+                }
+            }
+        }
+    }
+
+    .media-holder{
+        & > .inner{
+            padding: 90px 30px 0 90px;
+            box-sizing: border-box;
+            .media{
+                padding: 0;
+                ul{
+                    margin: 30px 0 30px;
+                    li{ width: 33%; }
+                }
+                .contacts-holder{
+                    text-align: left;
+                    & > a{
+                        display: block;
+                        & + a{ display: none; }
+                        & > .line{ display: none; }
+                    }
+                }
+            }
+        }
+    }
+
+    .team-holder{
+        & > .inner{
+            padding: 90px 30px 0 90px;
+            box-sizing: border-box;
+            & > .team{
+                ul{
+                    li{
+                        width: 100%;
+                        padding-top: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .partners-holder{
+        & > .inner{
+            padding: 90px 30px 0 90px;
+            box-sizing: border-box;
+            .title-holder{
+                width: 100%;
+                p{ padding: 0; }
+            }
+            .partners{
+                margin-top: 60px;
+                ul{
+                    padding: 3px;
+                    box-sizing: border-box;
+                    li{
+                        width: 50%;
+                        padding-top: 50%;
+                        & > a{
+                            figure{
+                                width: 44px;
+                                height: 44px;
+                                margin: -22px 0 0 -22px;
+                            }
+                        }
+                    }
+                }
+            }
+            .investors{
+                margin: 30px 0 60px;
+                padding: 0;
+                p{
+                    display: block;
+                    max-width: 100%;
+                    text-align: left;
+                    color: @white;
+                }
+                .btn{
+                    width: 100%;
+                    float: none;
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*  adaptive end                              */
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

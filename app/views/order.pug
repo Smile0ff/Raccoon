@@ -5,7 +5,8 @@ append css
 
 block content
 
-    include includes/loader
+    if (!flash)
+        include includes/loader
 
     header#header
         include includes/header/logo
@@ -21,4 +22,4 @@ block content
             include sections/order/order
 
 append js
-    script(src="/js/order.bundle.dev.js")
+    script(src="/js/order.bundle.min.js")

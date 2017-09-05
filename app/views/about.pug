@@ -19,21 +19,25 @@ block content
     main#content
         section.container.intro-holder
             include sections/about/intro
-
-        section.container.projects-holder
-            include sections/about/projects
-
-        section.container.media-holder
-            include sections/about/media
-
-        section.container.team-holder
-            include sections/about/team
-
-        section.container.partners-holder
-            include sections/about/partners
+        
+        if (projects.length)
+            section.container.projects-holder
+                include sections/about/projects
+        
+        if (media.length)
+            section.container.media-holder
+                include sections/about/media
+        
+        if (staff.length)
+            section.container.team-holder
+                include sections/about/team
+        
+        if (partners.length)
+            section.container.partners-holder
+                include sections/about/partners
         
         div#footer
             include includes/footer/copyright
 
 append js
-    script(src="/js/about.bundle.dev.js")
+    script(src="/js/about.bundle.min.js")

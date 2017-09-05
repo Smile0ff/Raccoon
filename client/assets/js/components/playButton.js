@@ -43,11 +43,13 @@ class PlayButton{
     }
 
     handleClose(e){
+        if(!this.isPlaying) return;
+
         this.isPlaying = false;
         
         page.classList.remove('__video-active');
 
-        video.src = video.src.replace(/autoplay=0/gi, 'autoplay=0');
+        video.src = video.src.replace(/autoplay=1/gi, 'autoplay=0');
 
         return false;
     }

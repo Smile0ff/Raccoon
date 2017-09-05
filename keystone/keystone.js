@@ -57,11 +57,12 @@ keystone.set('routes', require('./routes'));
 
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
+	intro: ['homes', 'abouts'],
 	projects: 'projects',
 	staff: 'staffs',
 	community: ['media', 'partners'],
-	meta: 'meta',
 	messages: ['feedbacks', 'orders'],
+	meta: 'meta',
 	users: 'users'
 });
 

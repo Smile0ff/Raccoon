@@ -32,3 +32,5 @@ const RAF = () => {
         window.cancelAnimationFrame = (id) => clearTimeout(id);
 
 };
+
+export default RAF();

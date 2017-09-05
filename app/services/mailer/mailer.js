@@ -23,9 +23,9 @@ const mailOptions = {
 }
 
 const send = (html) => {
+    let options = Object.assign({}, mailOptions, { html });
 
     return new Promise((resolve, reject) => {
-        let options = Object.assign({}, mailOptions, { html })
 
         transporter.sendMail(options, (err, info) => {
             if(err) return reject(err);

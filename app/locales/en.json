@@ -1,7 +1,4 @@
 {
-	"intro-slogan": "the new milestone in the world of controllers",
-	"intro-title": "Meet Raccoon.Clip",
-	"intro-text": "Raccoon.Clip fits both VR and videogames, is compatible with any devices and operational systems and doesn’t need any additional software to start playing. Just connect via Bluetooth and start gaining new stunning experience – interact with virtual reality or get additional possibilities in your favorite videogames!",
 	"kickstarter": "kickstarter",
 	"order-kickstarter": "Preorder on kickstarter",
 	"tooltip": "Scroll to discover more",
@@ -46,10 +43,6 @@
 	"emotions-title-lower-part": "You’ve never seen or experienced anything like it.",
 	"copyright": "© 2017 CHEERS - Unlimited Web Production. All rights reserved.",
 	"loading": "loading",
-	"about-intro-welcome": "welcome",
-	"about-intro-title": "Raccoon.world",
-	"about-intro-text": "The world of totally new gadgets for hands that allow interacting with virtual and digital reality, easy and joyful. We’ve done lots of researches to find out what the ideal controllers for VR and video games should be – and created them! Raccoon.world is Ukrainian startup that provides users with the entirely new gaming experience. With our gadgets you can actually touch the virtual world, and to control it as well.",
-	"about-intro-author": "Svitlana Malyovana, CEO of Raccoon.world",
 	"about-projects-upper-title": "projects",
 	"about-projects-title": "creating uniqueness",
 	"about-projects-text": "Raccoon.world developes gadgets for hands that differ in complexity, functionality, and price and address to different audiences",
@@ -84,5 +77,6 @@
 	"order-amount-error": "Number is required",
 	"error-not-found-title": "is there anybody out there",
 	"error-title": "wandering  around the space",
-	"back-to-home": "back to home"
+	"back-to-home": "back to home",
+	"landscape-title": "Turn back your device"
 }
