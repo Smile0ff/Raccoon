@@ -299,7 +299,10 @@
                 & > a{
                     display: inline-block;
                     vertical-align: top;
-                    & + a{ margin-left: 60px; }
+                    & + a{
+                        display: none;
+                        margin-left: 60px;
+                    }
                     .line{
                         display: inline-block;
                         vertical-align: middle;
@@ -744,7 +747,7 @@
 
     .media-holder{
         & > .inner{
-            padding: 180px 14.6484375% 0 17.578125%;
+            padding: 180px 14.6484375% 120px 17.578125%;
             box-sizing: border-box;
             .title-holder{
                 width: 100%;
@@ -780,6 +783,7 @@
     }
 
     .team-holder{
+        display: none;
         & > .inner{
             padding: 180px 14.6484375% 0 17.578125%;
             box-sizing: border-box;
@@ -827,6 +831,7 @@
     }
 
     .partners-holder{
+        display: none;
         & > .inner{
             padding: 180px 14.6484375% 0 17.578125%;
             box-sizing: border-box;

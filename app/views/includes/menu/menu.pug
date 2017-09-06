@@ -6,7 +6,7 @@ div#menu-holder
 
             each route in routes
                 
-                if route.key !== 'order'
+                if (route.key !== 'order' && route.key !== 'showreel')
                     
                     li(class=isCurrentRoute(route.key) ? 'active' : '')
                         a(href=url(route.key))= translate(route.name)
