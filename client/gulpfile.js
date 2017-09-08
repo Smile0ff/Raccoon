@@ -12,4 +12,4 @@ gulp.task('fonts', fonts);
 gulp.task('images', images);
 gulp.task('watcher', watcher);
 
-gulp.task('default', ['css', 'fonts', 'images', 'watcher']);
+gulp.task('default', ['css', 'fonts', 'images']);
