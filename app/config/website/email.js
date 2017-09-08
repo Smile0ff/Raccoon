@@ -1,3 +1,3 @@
-const email = process.env.RECIPIENT;
+const email = process.env.EMAIL;
 
 module.exports = email;
